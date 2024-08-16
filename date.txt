@@ -1,0 +1,25 @@
+let
+    // Set the start and end date for the date table
+    StartDate = #date(2020, 1, 1),
+    EndDate = #date(2021, 12, 31),
+
+    // Create a list of dates from the start to end date
+    DateList = List.Dates(StartDate, Duration.Days(EndDate - StartDate) + 1, #duration(1,0,0,0)),
+
+    // Convert the list to a table and add columns for year, month, day, etc.
+    DateTable = Table.FromList(DateList, Splitter.SplitByNothing(), {"Date"}),
+    #"Changed Type" = Table.TransformColumnTypes(DateTable,{{"Date", type date}}),
+    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int32.Type),
+    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([Date]), Int32.Type),
+    #"Inserted Day" = Table.AddColumn(#"Inserted Month", "Day", each Date.Day([Date]), Int32.Type),
+    #"Inserted Weekday" = Table.AddColumn(#"Inserted Day", "Weekday", each Date.DayOfWeek([Date]), Int32.Type),
+    #"Inserted MonthName" = Table.AddColumn(#"Inserted Weekday", "MonthName", each Date.ToText([Date], "MMMM"), type text),
+    #"Inserted MonthNameShort" = Table.AddColumn(#"Inserted MonthName", "MonthNameShort", each Date.ToText([Date], "MMM"), type text),
+    #"Inserted QuarterNo" = Table.AddColumn(#"Inserted MonthNameShort", "QuarterNo", each Date.QuarterOfYear([Date]), Int32.Type),
+    #"Inserted YearQuarter" = Table.AddColumn(#"Inserted QuarterNo", "YearQuarter", each Text.Combine({Text.From([Year]), " Q", Text.From([QuarterNo])}), type text),
+    #"Inserted YearMonth" = Table.AddColumn(#"Inserted YearQuarter", "YearMonth", each Text.Combine({Text.From([Year]), "-", Text.PadStart(Text.From([Month]), 2, "0")}), type text),
+    #"Inserted YearMonthDay" = Table.AddColumn(#"Inserted YearMonth", "YearMonthDay", each Text.Combine({Text.From([Year]), Text.PadStart(Text.From([Month]), 2, "0"), Text.PadStart(Text.From([Day]), 2, "0")}), type text),
+    #"Added Custom Column" = Table.AddColumn(#"Inserted YearMonthDay", "Month,Year", each Text.Combine({[MonthNameShort], ",", Text.Middle(Text.From([Year], "en-IN"), 2)}), type text),
+    #"Inserted Merged Column" = Table.AddColumn(#"Added Custom Column", "Quarter", each Text.Combine({"Q", Text.From([QuarterNo], "en-IN")}), type text)
+in
+    #"Inserted Merged Column"
