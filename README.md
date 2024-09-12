@@ -9,3 +9,13 @@ There are a few recommended best practices that can help speed up data refresh o
 - Try to avoid highly unique columns; they have low compression and take up valuable resporces.
 - Disable Auto date/ time for new files.
 - Create new columns in the Power Query Editor, rather that DAX, when possible.
+
+## Relationship
+- The line between two tables represents that a relationship exists.
+- The arrow indicates in which direction filtering will occur.
+- The 1 indicates the Customer table as the one side of the relationship. This means the key from one sdie of the relationship is always unique in that table.
+- The * indicates that the FactInternetSales table is the many side of the relationship. The key will appear in the sales table for each transaction; therefore, the key appears many times.
+
+## Editing relationship
+
+To edit an existing re;ationship, select that relationship and then click on edit
