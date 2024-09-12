@@ -11,6 +11,9 @@ There are a few recommended best practices that can help speed up data refresh o
 - Create new columns in the Power Query Editor, rather that DAX, when possible.
 
 ## Relationship
+
+![image](https://github.com/user-attachments/assets/ee0d3741-ff1e-4374-bb85-f99df619a29f)
+
 - The line between two tables represents that a relationship exists.
 - The arrow indicates in which direction filtering will occur.
 - The 1 indicates the Customer table as the one side of the relationship. This means the key from one sdie of the relationship is always unique in that table.
