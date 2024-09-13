@@ -33,7 +33,9 @@ Complete the following steps to create a new relationship:
 - Select FullDateAlternateKey from the list of columns
 - Cardinality, Cross filter direction and whether the relationship is active or inactive is updated automatically by PowerBI
 - Click OK to close the editor.
+  
 ![image](https://github.com/user-attachments/assets/c45c0e61-3f45-4731-8b4d-faccf2d51d66)
+
 
 ![image](https://github.com/user-attachments/assets/a49d4cd7-2ed5-4b70-9963-c6e2ea4c9d58)
 
@@ -54,7 +56,9 @@ Fil | Option and Settings | Options | Global | Data Load
 ## Many to Many relationships
 Many to many relationships is when multiple rows in one table are associated with multiple rows in nanother table. as an examples of a many to many relationships between products and customers. A product can be sold to many customers, likewise, a customer can purchase many products. This relationships between products and customerzs is a many to many relationship. We created the following report in report view.
 
+
 ![image](https://github.com/user-attachments/assets/997515c5-c4ab-4bb8-b25e-83253a65c98a)
+
 
 - ElglishProductName from DimProduct table
 - Total sales is the sum of SalesAmout from FactInternetSales table
@@ -62,7 +66,9 @@ Many to many relationships is when multiple rows in one table are associated wit
 - Custome Counts is the count of the CustomerKey clumn from DimCustomer table; create a new measure in DimCustoer table -> Customer count = countsrows([DimCustomer])
 
 Here we see the customer count is the same number in all the rows and filtering is not happening. This is a red flag for BI report.
+
 ![image](https://github.com/user-attachments/assets/d59e4a76-33ff-49ad-9464-3e470856291d)
+
 
 To fix this, we go back to model view and double click on the connection line between DimCustimer and factInternetSales. In the edit relatioship, we turn the cross finter direction to Both and apply as shown below.
 
