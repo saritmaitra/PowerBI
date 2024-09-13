@@ -70,3 +70,24 @@ We go to report view again and validate the report as shown below. This time we 
 
 ![image](https://github.com/user-attachments/assets/09726e16-2845-48a6-9ad1-a9a37774f6da)
 
+## Calculated measures
+Here six simple calculated measures are ccreated. These measures will create additional metrics that can be used in visualizations and reports to obtain deeper insights from the data.
+- Total sales
+- Total costs
+- Profit
+- Profit margin
+- YTD Sales
+- Fiscal YTD saees
+
+We craete these measure in the factInterntSales table.
+- Total sales = sum(FactInternetSales[SalesAmount])
+- Total cost = sum(FactInternetSales[TotalProductCost])
+- Profit = sum(FactInternetSales[SalesAmount]) - sum(FactInternetSales[TotalProductCost]) or the most efficient way is Profit = [Total sales] - [Total cost]
+- Profit margin = DIVIDE([Profit], [Total sales])
+- YTD Sales = TOTALYTD([Total sales], FactInternetSales[OrderDate])
+- Fiscal YTD sales = TOTALYTD([Total sales], FactInternetSales[OrderDate], "03/31") considering 31 March is fiscal year end.
+
+We can create another metrics as shown below.
+
+![image](https://github.com/user-attachments/assets/c5f6990e-73ee-470e-9d16-2dd6d92b0445)
+
