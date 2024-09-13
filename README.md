@@ -65,3 +65,8 @@ Here we see the custome count is the same number in all the rows and filtering i
 To fix this, we go back to model view and double click on the connection line between DimCustimer and factInternetSales. In the edit relatioship, we turn the cross finter direction to Both and apply as shown below.
 
 ![image](https://github.com/user-attachments/assets/10ba4c79-f187-4f9a-9ced-84ac33a8a49b)
+
+We go to report view again and validate the report as shown below. This time we find the correct numbers in all the rows in customer count.
+
+![image](https://github.com/user-attachments/assets/09726e16-2845-48a6-9ad1-a9a37774f6da)
+
