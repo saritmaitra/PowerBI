@@ -21,4 +21,32 @@ There are a few recommended best practices that can help speed up data refresh o
 
 ## Editing relationship
 
-To edit an existing re;ationship, select that relationship and then click on edit
+To edit an existing re;ationship, select that relationship and then click on edit.
+
+## Create new relationship
+Complete the following steps to create a new relationship:
+- Select FactInternetSales from the list of tables in the dropdown
+- Select OrderDate from the list of columns and use the scroll bar to scroll all the way to right
+- Select DimDate from the next drop-down list
+- Select FullDateAlternateKey from the list of columns
+- Cardinality, Cross filter direction and whether the relationship is active or inactive is updated automatically by PowerBI
+- Click OK to close the editor.
+![image](https://github.com/user-attachments/assets/c45c0e61-3f45-4731-8b4d-faccf2d51d66)
+
+![image](https://github.com/user-attachments/assets/a49d4cd7-2ed5-4b70-9963-c6e2ea4c9d58)
+
+The date table in the PowerBI data model is important for developing time intelligence calculations. When we define our relationship on the date key, rather than date column, it is important to also mark the date table as a 'Date table'. Marking a tav=ble as date table can only be accomploshed in the Report view or Data View as shown below. Go to Report View and right click on DimDate to achieve the below.
+
+![image](https://github.com/user-attachments/assets/25b68773-3aa3-4c8a-9c33-ae84681fccd2)
+
+Once mark as date table is selected, we will be prompted to select Date Column from the Date table as shown below.
+
+![image](https://github.com/user-attachments/assets/0c18d39f-7121-4ab8-871f-9c58d8d65ccb)
+
+There is one important thing to note on this configuration screen: the built-in data tables that were associated with this table are removed. In the background, Power BI creates a hidden date table for each field that has a date or date/time field. Depending on the number of date fields in the data model, this can create a lot of extra objects and will consume more memory in the data model. As a best oractice, it is recommended disabling this functionality as shown below.
+
+Fil | Option and Settings | Options | Global | Data Load
+
+![image](https://github.com/user-attachments/assets/0b91ff71-1872-48f2-82c2-eff7e0d22445)
+
+
