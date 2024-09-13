@@ -12,6 +12,8 @@ There are a few recommended best practices that can help speed up data refresh o
 
 ## Relationship
 
+We will start with "Building Data Model.pbix" file. Please download and open that file in your PowerBI desktop.
+
 ![image](https://github.com/user-attachments/assets/ee0d3741-ff1e-4374-bb85-f99df619a29f)
 
 - The line between two tables represents that a relationship exists.
