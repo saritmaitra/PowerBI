@@ -49,4 +49,19 @@ Fil | Option and Settings | Options | Global | Data Load
 
 ![image](https://github.com/user-attachments/assets/0b91ff71-1872-48f2-82c2-eff7e0d22445)
 
+## Many to Many relationships
+Many to many relationships is when multiple rows in one table are associated with multiple rows in nanother table. as an examples of a many to many relationships between products and customers. A product can be sold to many customers, likewise, a customer can purchase many products. This relationships between products and customerzs is a many to many relationship. We created the following report in report view.
 
+![image](https://github.com/user-attachments/assets/997515c5-c4ab-4bb8-b25e-83253a65c98a)
+
+- ElglishProductName from DimProduct table
+- Total sales is the sum of SalesAmout from FactInternetSales table
+- Total Transactions is the count of associated rows from factIntenetSales table (create anew measure -> Total transactions = countrows([FactIntenetSales])
+- Custome Counts is the count of the CustomerKey clumn from DimCustomer table; create a new measure in DimCustoer table -> Customer count = countsrows([DimCustomer])
+
+Here we see the custome count is the same number in all the rows and filtering is not happening. This is a red flag for BI report.
+![image](https://github.com/user-attachments/assets/d59e4a76-33ff-49ad-9464-3e470856291d)
+
+To fix this, we go back to model view and double click on the connection line between DimCustimer and factInternetSales. In the edit relatioship, we turn the cross finter direction to Both and apply as shown below.
+
+![image](https://github.com/user-attachments/assets/10ba4c79-f187-4f9a-9ced-84ac33a8a49b)
