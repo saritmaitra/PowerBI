@@ -135,3 +135,29 @@ Problem Statement 1: KPI’s Requirement
 - Company-Wise Sales Trend in Grid Form: Provide a tabular grid that displays the sales trend for each company. The grid should showcase the company name along with their YTD sales figures.
 - Details Grid Showing All Car Sales Information: Create a detailed grid that presents all relevant information for each car sales, including car model, body style, color, sales amount, dealer region, date, etc.
 
+## Problem Statement 1: KPI’s
+
+**Sales Overview:**
+
+- YTD Total Sales: $371.2M -> Formula: SUM('Car Data'[Total Sales])
+- MTD Total Sales: $54.28M -> Formula: CALCULATE(SUM('Car Data'[Total Sales]), DATESMTD('Calendar Table'[Date]))
+- YOY Growth in Total Sales: 23.6% -> Formula: [Sales Difference]/[PTYD Total Sales]
+- Difference between YTD Sales and PTYD Sales: $70.8M -> Formula: [YTD Car Sales]-[PTYD Car Sales]
+
+**Average Price Analysis:**
+
+- YTD Average Price: $28.0k -> Formula: TOTALYTD([Avg Price],'Calendar Table'[Date])
+- MTD Average Price: $28.26k -> Formula: TOTALMTD([Avg Price],'Calendar Table'[Date])
+- YOY Growth in Average Price: -0.79% -> Formula: [Avg Price Diff]/[PTYD Avg Price]
+- Difference between YTD Average Price and PTYD Average Price: $0.22k loss -> Formula: [YTD Avg Price]-[PTYD Avg Price]
+
+**Cars Sold Metrics:**
+
+- YTD Cars Sold: 13.3K -> Formula: SUM('Car Data'[YTD Car Solds])
+- MTD Cars Sold: 1.92k -> Formula: CALCULATE(SUM('Car Data'[MTD Cars Sold]), DATESMTD('Calendar Table'[Date]))
+
+**YOY Growth in
+Cars Sold:** 19.73% - Formula: car_data[Cars Sold Diff]/[YTD Car Solds]
+
+- Difference between YTD Cars Sold and PTYD Cars Sold: 3K -> Formula: [YTD Car Solds]-[PTYD Car Solds]
+
